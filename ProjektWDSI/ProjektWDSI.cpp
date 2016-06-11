@@ -28,6 +28,23 @@ public:
 	}
 };
 
+void Sortuj_szybko(vector<osobnik> &d, int lewy, int prawy)
+{
+	int i, j;
+	osobnik piwot = osobnik();
+	i = (lewy + prawy) / 2;
+	piwot = d[i]; d[i] = d[prawy];
+	for (j = i = lewy; i < prawy; i++)
+	if (d[i].ocena < piwot.ocena)
+	{
+		swap(d[i], d[j]);
+		j++;
+	}
+	d[prawy] = d[j]; d[j] = piwot;
+	if (lewy < j - 1)  Sortuj_szybko(d, lewy, j - 1);
+	if (j + 1 < prawy) Sortuj_szybko(d, j + 1, prawy);
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
