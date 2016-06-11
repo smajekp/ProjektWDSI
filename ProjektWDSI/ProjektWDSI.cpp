@@ -77,6 +77,27 @@ int _tmain(int argc, _TCHAR* argv[])
 		osobnik os = osobnik();
 		populacja.push_back(os);
 	}
+
+	for (int k = 0; k < ITER; k++)
+	{
+
+		for (int i = 0; i < WLK_POP; i++)
+		{
+			populacja[i].ocena = 0;
+			przyst(populacja[i]);
+		}
+
+		Sortuj_szybko(populacja, 0, WLK_POP - 1);
+
+		cout << k + 1 << ". ";
+		for (int j = 0; j < DLUGOSC; j++)
+		{
+			cout << populacja[0].chromosom[j];
+		}
+		cout << "    " << populacja[0].ocena;
+		cout << "    " << populacja[0].x;
+		cout << endl;
+	}
 	
 	system("PAUSE");
 	return 0;
