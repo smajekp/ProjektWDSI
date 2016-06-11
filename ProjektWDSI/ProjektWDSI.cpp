@@ -97,7 +97,38 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "    " << populacja[0].ocena;
 		cout << "    " << populacja[0].x;
 		cout << endl;
+
+		//if (abs((0.968694 - populacja[0].x)) < ZAKONCZ)
+		//	break;
+
+		//SELEKCJA TURNIEJOWA
+
+		int q = 5; //liczba osobnikow
+		vector <osobnik> uczestnicy;
+		vector <osobnik> koncowaPopulacja;
+		for (int j = 0; j < WLK_POP; j++)
+		{
+
+			for (int i = 0; i < q; i++)
+			{
+				int i1 = rand() % WLK_POP;
+				uczestnicy.push_back(populacja[i1]);
+			}
+
+			Sortuj_szybko(uczestnicy, 0, q - 1);
+			newPopulacja.push_back(uczestnicy[0]);
+			for (int i = 0; i < q; i++)
+			{
+				uczestnicy.pop_back();
+			}
+		}
+
+
+
+
 	}
+
+
 	
 	system("PAUSE");
 	return 0;
