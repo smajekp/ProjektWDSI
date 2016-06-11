@@ -173,6 +173,20 @@ int _tmain(int argc, _TCHAR* argv[])
 			koncowaPopulacja.push_back(newTwo);
 		}
 
+		for (int i = 0; i < WLK_POP; i++)
+		{
+			populacja.pop_back();
+			newPopulacja.pop_back();
+		}
+		for (int i = 0; i < WLK_POP; i++)
+		{
+			populacja.push_back(koncowaPopulacja[i]);
+		}
+		for (int i = 0; i < WLK_POP; i++)
+		{
+			koncowaPopulacja.pop_back();
+		}
+
 	}
 
 
