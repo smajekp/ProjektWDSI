@@ -46,8 +46,20 @@ void Sortuj_szybko(vector<osobnik> &d, int lewy, int prawy)
 }
 
 
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	srand(time(NULL));
+	vector<osobnik> populacja;
+	vector<osobnik> newPopulacja;
+
+	for (int i = 0; i < WLK_POP; i++)
+	{
+		osobnik os = osobnik();
+		populacja.push_back(os);
+	}
+	
+	system("PAUSE");
 	return 0;
 }
 
