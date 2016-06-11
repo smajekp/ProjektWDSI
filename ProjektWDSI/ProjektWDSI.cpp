@@ -145,6 +145,32 @@ int _tmain(int argc, _TCHAR* argv[])
 				newOne.chromosom[j] = two.chromosom[j];
 				newTwo.chromosom[j] = one.chromosom[j];
 			}
+
+			// MUTACJA
+
+			if ((rand() % 100) < PRAWD_MUT * 100)
+			{
+				int x = rand() % DLUGOSC;
+				if (newOne.chromosom[x] == 0)
+				{
+					newOne.chromosom[x] = 1;
+				}
+				else
+					newOne.chromosom[x] = 0;
+			}
+			if ((rand() % 100) < PRAWD_MUT * 100)
+			{
+				int x = rand() % DLUGOSC;
+				if (newTwo.chromosom[x] == 0)
+				{
+					newTwo.chromosom[x] = 1;
+				}
+				else
+					newTwo.chromosom[x] = 0;
+			}
+
+			koncowaPopulacja.push_back(newOne);
+			koncowaPopulacja.push_back(newTwo);
 		}
 
 	}
