@@ -28,6 +28,25 @@ public:
 	}
 };
 
+unsigned int przyst(osobnik &a){
+	int suma = 0;
+	for (int i = 0; i < DLUGOSC; i++)
+	{
+		suma += a.chromosom[i] * pow(2, i);
+	}
+	a.x = -1.0 + (2.0*suma) / (2097152 - 1);
+	a.ocena = -a.x + sin(5 * a.x) - cos(13 * a.x);
+
+	return a.ocena;
+}
+bool porownanie(osobnik &a, osobnik &b)
+{
+	if (a.ocena < b.ocena)
+		return true;
+	else
+		return false;
+}
+
 void Sortuj_szybko(vector<osobnik> &d, int lewy, int prawy)
 {
 	int i, j;
