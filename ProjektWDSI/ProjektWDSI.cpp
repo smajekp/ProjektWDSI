@@ -123,8 +123,29 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 		}
 
+		// KRZY¯OWANIE JEDNOPUNKTOWE
 
+		for (int i = 0; i < WLK_POP / 2; i++)
+		{
+			int i1 = rand() % WLK_POP;
+			int i2 = rand() % WLK_POP;
+			int punkt_podz = rand() % DLUGOSC;
+			osobnik one = newPopulacja[i1];
+			osobnik two = newPopulacja[i2];
+			osobnik newOne = osobnik();
+			osobnik newTwo = osobnik();
 
+			for (int j = 0; j < punkt_podz; j++)
+			{
+				newOne.chromosom[j] = one.chromosom[j];
+				newTwo.chromosom[j] = two.chromosom[j];
+			}
+			for (int j = punkt_podz; j < DLUGOSC; j++)
+			{
+				newOne.chromosom[j] = two.chromosom[j];
+				newTwo.chromosom[j] = one.chromosom[j];
+			}
+		}
 
 	}
 
